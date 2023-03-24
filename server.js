@@ -7,6 +7,7 @@ const fs = require('fs');
 const app = express();
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/download', express.static('uploads'));
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
