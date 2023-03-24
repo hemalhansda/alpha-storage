@@ -170,6 +170,7 @@ header button:hover {
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
+  position: relative;
 }
 
 .file-card:hover {
@@ -546,4 +547,27 @@ header button {
   width: 0%;
   height: 10px;
   border-radius: 15px;
+}
+
+.created-date {
+  position: absolute;
+  right: 10px;
+  font-size: 10px;
+  color: grey;
+  bottom: 7px;
+}
+
+a:link { text-decoration: none; }
+
+
+a:visited { text-decoration: none; }
+
+
+a:hover { text-decoration: none; }
+
+
+a:active { text-decoration: none; }
+
+label:hover {
+  cursor: pointer;
 }

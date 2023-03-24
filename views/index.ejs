@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cloud Storage App</title>
+    <title>Alpha Storage</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
@@ -15,9 +15,9 @@
 
     <main class="container">
       <div class="upload-form">
-        <h2>Upload File</h2>
+        <!-- <h2>Upload File</h2> -->
         <form id="upload-form" method="post" enctype="multipart/form-data">
-          <label for="file-input">Choose File</label>
+          <label style="font-size: 16px; width: 160px; padding: 10px; background-color: #e1e1e1; border-radius: 10px;" for="file-input">Choose File</label>
           <input type="file" name="file" id="file-input" required />
           <button type="submit" id="upload-button">Upload</button>
         </form>
@@ -38,9 +38,10 @@
         <% } else { %>
         <% files.forEach(function(file) { %>
         <div class="file-card">
-          <h3><%= file %></h3>
-          <!-- <p><%= file.size %> bytes</p> -->
-          <a class="download-btn" href="/download/<%= file %>" data-name="<%= file %>">Download</a>
+          <h3><%= file.fileName %></h3>
+          <p>Size - <%= file.fileSize %></p>
+          <a class="download-btn" href="/download/<%= file.fileName %>" data-name="<%= file.fileName %>">Download</a>
+          <span class="created-date"><%= file.createdAt %></span>
         </div>
         <% }); %>
         <% } %>
