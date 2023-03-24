@@ -10,5 +10,11 @@
       <input type="file" name="file">
       <button type="submit">Upload</button>
     </form>
+    <h2>Uploaded Files:</h2>
+    <ul>
+      <% files.forEach(file => { %>
+        <li><%= file %></li>
+      <% }); %>
+    </ul>
   </body>
 </html>

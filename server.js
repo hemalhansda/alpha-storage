@@ -2,6 +2,7 @@ const express = require('express');
 const multer = require('multer');
 const ejs = require('ejs');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -19,7 +20,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.get('/', (req, res) => {
-  res.render('index');
+  const files = fs.readdirSync('uploads/');
+  res.render('index', { files });
 });
 
 app.post('/upload', upload.single('file'), (req, res) => {
