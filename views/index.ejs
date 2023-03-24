@@ -22,9 +22,12 @@
           <button type="submit" id="upload-button">Upload</button>
         </form>
         <br/>
-        <div id="progress-container">
+        <!-- <div id="progress-container">
           <div id="progress-bar"></div>
           <div id="progress-percent">0%</div>
+        </div> -->
+        <div class="progress">
+          <div class="color" id="insideFiller"></div>
         </div>
       </div>
 
@@ -60,7 +63,8 @@
         const fileInput = document.getElementById("file-input");
         const uploadButton = document.getElementById("upload-button");
         const progressContainer = document.getElementById("progress-container");
-        const progressBar = document.getElementById("progress-bar");
+        // const progressBar = document.getElementById("progress-bar");
+        const progressBar = document.getElementById("insideFiller");
         const progressPercent = document.getElementById("progress-percent");
 
         uploadForm.addEventListener("submit", function(event) {
@@ -71,8 +75,9 @@
           const xhr = new XMLHttpRequest();
           xhr.upload.addEventListener("progress", function(event) {
             const percent = (event.loaded / event.total) * 100;
-            progressBar.style.width = percent + "%";
-            progressPercent.textContent = percent.toFixed(0) + "%";
+            // progressBar.style.width = percent + "%";
+            progressBar.style.width = percent.toFixed(0) + "%";
+            // progressPercent.textContent = percent.toFixed(0) + "%";
           });
 
           xhr.onreadystatechange = function() {
